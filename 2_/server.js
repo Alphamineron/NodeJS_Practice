@@ -18,6 +18,8 @@ function listening() {
 app.use(express.static('FrontEnd'));
 app.get("/hello", api_getHello);     // Creating REST API Endpoints
 app.get("/say/:var/:num", api_getSay);
+app.get("/add/:word/:score?", api_addWord);
+app.get("/search/:word", api_searchWord);
 app.get("/all", api_getAll);
 
 
@@ -38,4 +40,43 @@ function api_getSay(req, res) {
 
 function api_getAll(req, res) {
     res.send(SAdata.words);
+}
+
+function api_addWord(req, res) {
+    let data = req.params;
+    let reply;
+
+    if(!data.score)
+        reply = {
+            msg: "Score is required!"
+        };
+    else {
+        SAdata.words[data.word] = Number(data.score);
+        reply = {
+            msg: "Word [" + data.word + "] has been added."
+        };
+    }
+
+    res.send(reply);
+}
+
+function api_searchWord(req, res) {
+    let word = req.params.word;
+    let reply;
+
+    if(SAdata.words[word]) {
+        reply = {
+            status: "Found",
+            word: word,
+            score: SAdata.words[word]
+        };
+    }
+    else {
+        reply = {
+            status: "Not Found",
+            word: word
+        };
+    }
+
+    res.send(reply);
 }
