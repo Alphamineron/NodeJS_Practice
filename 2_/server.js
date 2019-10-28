@@ -55,6 +55,7 @@ function api_addWord(req, res) {
         reply = {
             msg: "Word [" + data.word + "] has been added."
         };
+        SAdata.save(SAdata.words);
     }
 
     res.send(reply);
