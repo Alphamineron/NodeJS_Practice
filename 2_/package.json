@@ -1,0 +1,20 @@
+{
+  "name": "express_server_practice_1",
+  "version": "1.0.0",
+  "description": "Practice project to get familar with express... This is the first one",
+  "main": "server.js",
+  "scripts": {
+    "serve": "nodemon server.js",
+    "live": "browser-sync start --proxy 'localhost:3000' --files 'FrontEnd/*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ankur Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "nodemon": "^1.19.4"
+  }
+}
