@@ -18,6 +18,12 @@ function listening() {
 app.use(express.static('FrontEnd'));
 
 
+app.post("/analyze", analyzeText);
+
+function analyzeText(request, response) {
+    
+}
+
 
 app.get("/hello", api_getHello);     // Creating REST API Endpoints
 app.get("/say/:var/:num", api_getSay);

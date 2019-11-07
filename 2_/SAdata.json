@@ -7,5 +7,20 @@
     "happy": 3,
     "alright": 1,
     "love": 5,
-    "okay": 0
+    "okay": 0,
+    "regret": -2,
+    "doubts": -1,
+    "admit": -1,
+    "wishing": 1,
+    "haha": 3,
+    "abused": -3,
+    "haunt": -1,
+    "disappoints": -2,
+    "fantastic": 5,
+    "excellent": 5,
+    "useless": -1,
+    "ok": 1,
+    "worthless": -3,
+    "awful": -3,
+    "lovely": 2
 }

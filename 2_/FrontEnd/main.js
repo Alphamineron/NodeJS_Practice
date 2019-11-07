@@ -39,7 +39,7 @@ function changeColor(obj) {
 
 function displayKeys(data) {
     let keys = Object.keys(data);
-    let list = document.querySelector('.sentiment-analysis-words');
+    let list = document.querySelector('.word-list');
 
     for(let i = 0; i < keys.length; i++) {
         let word = keys[i];
