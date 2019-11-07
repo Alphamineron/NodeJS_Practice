@@ -1,6 +1,6 @@
 console.log("Server is Starting");
 
-const SAdata = require('./SAdata');
+const SAdata = require('./SAdata');     // SyncLoading Data before the Server boots up
 
 const express = require('express');
 

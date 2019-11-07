@@ -4,5 +4,8 @@
     "bad": -3,
     "horrible": -5,
     "death": -2,
-    "happy": 3
+    "happy": 3,
+    "alright": 1,
+    "love": 5,
+    "okay": 0
 }

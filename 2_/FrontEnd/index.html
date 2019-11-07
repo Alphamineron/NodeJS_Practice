@@ -3,8 +3,29 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        Wubba Dubba Dub Dub!!!
+        <form>
+          <label>
+            <input id="word" placeholder="Word">
+            <span>Word</span>
+          </label>
+
+          <label>
+            <input id="score" placeholder="Score">
+            <span>Score</span>
+          </label>
+
+          <button class="submit">Submit</button>
+        </form>
+        
+        <!-- partial -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+        <div class="sentiment-analysis-words"></div>
+        <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
