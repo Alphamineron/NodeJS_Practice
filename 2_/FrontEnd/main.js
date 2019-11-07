@@ -8,8 +8,42 @@ fetch(endpoint)
 
         let submitbtn = document.querySelector('.submit');
         submitbtn.addEventListener('click', addWord);
+        let analyzebtn = document.querySelector('.analyze');
+        analyzebtn.addEventListener('click', initAnalysis);
     })
     .catch(err => console.log(err));
+
+
+function initAnalysis(event) {
+    let textinput = document.querySelector('#text').value;
+
+    let data = {
+        text: textinput
+    };
+
+    fetch('/analyze/', {
+            method: 'post',
+            headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(function(response) {
+            console.log(response);
+
+            let element = document.querySelector('div.form');
+            let result = document.createElement('div');
+            result.classList.add("result");
+            result.innerHTML = `
+                    <span><b>Score:</b> ${response.score}</span>
+                    <span><b>Comparative:</b> ${Math.round(response.comparative*100)/100}</span>
+            `;
+            element.appendChild(result);
+        })
+        .catch(err => console.log(err));
+}
 
 
 function addWord(event) {
@@ -56,7 +90,7 @@ function displayKeys(data) {
 
 
 $(function() {
-  $('input').on('change', function() {
+  $('.input').on('change', function() {
     var input = $(this);
     if (input.val().length) {
       input.addClass('populated');

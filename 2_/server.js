@@ -5,6 +5,7 @@ const SAdata = require('./SAdata');     // SyncLoading Data before the Server bo
 
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const PORT = 3000;
 const app = express();
@@ -16,12 +17,49 @@ function listening() {
 
 
 app.use(express.static('FrontEnd'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
 
 app.post("/analyze", analyzeText);
 
 function analyzeText(request, response) {
-    
+    // console.log(request.body);   // See the terminal and you'd realize how much extra information
+                                // we get in a POST request, So this is gonna be a bit challenging
+    let text = request.body.text;
+    let tokens = text.split(/\W+/);
+    let totalScore = 0;
+    let Weighted_Tokens = [];
+    for (var i = 0; i < tokens.length; i++) {
+        let score = 0;
+        let found = false;
+        if (SAdata.words.hasOwnProperty(tokens[i])) {
+            score = Number(SAdata.words[tokens[i]]);
+            found = true;
+        }
+
+
+        if(found) {
+            Weighted_Tokens.push({
+                word: tokens[i],
+                score: score
+            });
+        }
+        totalScore += score;
+    }
+
+    let comp = totalScore/tokens.length;
+
+    let reply = {
+        msg: "Analyte Text Processed",
+        score: totalScore,
+        comparative: comp,
+        words: Weighted_Tokens
+    };
+
+    response.send(reply);
 }
 
 
