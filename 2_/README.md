@@ -23,6 +23,7 @@ interface to the backend api.
 
 
 # Concepts Implemented
+* Setting up Development Environment (Nodemon & browser-sync)
 * Simple Node.js Server using Express
 * REST Api basics, along with GET & POST request implemention
 * JSON file Handling (Async/Sync) in node.js
