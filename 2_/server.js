@@ -2,20 +2,23 @@ console.log("Server is Starting");
 
 const SAdata = require('./SAdata');     // SyncLoading Data before the Server boots up
 
+
+
 const express = require('express');
 
 const PORT = 3000;
 const app = express();
 
 const server = app.listen(PORT, listening);
-
 function listening() {
     console.log(`Server is listening on port: ${PORT}`);
 }
 
 
-
 app.use(express.static('FrontEnd'));
+
+
+
 app.get("/hello", api_getHello);     // Creating REST API Endpoints
 app.get("/say/:var/:num", api_getSay);
 app.get("/add/:word/:score?", api_addWord);
