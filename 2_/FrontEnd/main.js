@@ -33,14 +33,20 @@ function initAnalysis(event) {
         .then(function(response) {
             console.log(response);
 
-            let element = document.querySelector('div.form');
-            let result = document.createElement('div');
-            result.classList.add("result");
-            result.innerHTML = `
-                    <span><b>Score:</b> ${response.score}</span>
-                    <span><b>Comparative:</b> ${Math.round(response.comparative*100)/100}</span>
-            `;
-            element.appendChild(result);
+            try {
+                let res = document.querySelector(".result");   // Removing element in case it already exists
+                res.parentNode.removeChild(res);
+            }
+            finally {
+                let element = document.querySelector('div.form');
+                let result = document.createElement('div');
+                result.classList.add("result");
+                result.innerHTML = `
+                        <span><b>Score:</b> ${response.score}</span>
+                        <span><b>Comparative:</b> ${Math.round(response.comparative*100)/100}</span>
+                `;
+                element.appendChild(result);
+            }
         })
         .catch(err => console.log(err));
 }
