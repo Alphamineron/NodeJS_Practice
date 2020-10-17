@@ -1,9 +1,11 @@
 <div style="text-align:center">
     <p align="center">
         <img src="imgs/hexagon.svg" height="100">
+        <br>
+        <b>Simple Sentiment Analysis Practice Project</b>
     </p>
+---
 
-# Simple Sentiment Analysis Practice Project
 ![A Snapshot of the UI](imgs/ui_snapshot_1.png)
 
 Just trying out Node.js and Express framework for the first time, this is supposed to
