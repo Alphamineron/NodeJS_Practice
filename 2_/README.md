@@ -4,6 +4,7 @@
         <br>
         <b>Simple Sentiment Analysis Practice Project</b>
     </p>
+
 ---
 
 ![A Snapshot of the UI](imgs/ui_snapshot_1.png)
